@@ -26,7 +26,7 @@ def create_app():
     #from app.routes.document_classification.extract_document_classification import extract_bp_document_classification
     #from app.routes.customer_risk_assesment_google.risk_assesment import risk_assessment_bp
     from app.routes.customer_risk_agent.risk_routes import risk_bp
-    #from app.routes.customer_risk_assesment_llama.risk_assesment_llama import risk_assesment_llama_bp
+    from app.routes.customer_risk_assesment_llama.risk_assesment_llama import risk_assesment_llama_bp
     from app.routes.customer_risk_assesment_openai.risk_assesment_openai import risk_assessment_openai_bp
 
 
@@ -38,7 +38,7 @@ def create_app():
     #app.register_blueprint(extract_bp_document_classification, url_prefix='/api') #new route for document classification using LLM
     #app.register_blueprint(risk_assessment_bp, url_prefix='/api') #new route for risk assesment using LLM
     app.register_blueprint(risk_bp, url_prefix='/api') #new route for risk assesment using Agent
-    #app.register_blueprint(risk_assesment_llama_bp, url_prefix='/api') #new route for risk assesment using
+    app.register_blueprint(risk_assesment_llama_bp, url_prefix='/api') #new route for risk assesment using
     app.register_blueprint(risk_assessment_openai_bp, url_prefix='/api') #new route for risk assesment using OpenAI
 
     # Default route for '/'
