@@ -76,6 +76,7 @@ class RiskAgent:
     
     #LLM Assesment with enhanced fallbacks
     @staticmethod
+    @log_execution_time
     def perform_llm_assessment(state: AgentState) -> AgentState:
         """Dedicated node for LLM-based risk assessment with smart fallbacks"""
         try:
