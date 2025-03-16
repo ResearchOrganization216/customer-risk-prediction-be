@@ -42,6 +42,7 @@ def generate_content_with_prompt(data):
         f"You are an insurance risk assessment expert. Based on the following details, "
         f"explain why the risk percentage is {data['riskPercentage']}%. "
         f"Use the feature importance data internally to justify your explanation and focus on the most influential factors, "
+        f"Feature importance data: {formatted_importance}, "
         f"but do NOT display the importance scores in the response.\n\n"
         f"**Customer Details:**\n"
         f"- Age: {data['age']}\n"
