@@ -3,6 +3,7 @@ from langgraph.graph import StateGraph, END
 from app.utils.customer_risk_agent.tools import call_risk_api, call_assessment_api
 from app.utils.customer_risk_agent.exception import RiskCalculationError, AssessmentAPIError, WorkflowError
 import logging
+from app.utils.logger import log_event, log_execution_time
 
 logger = logging.getLogger(__name__)
 
@@ -16,13 +17,16 @@ class AgentState(TypedDict):
 
 class RiskAgent:
     @staticmethod
+    @log_execution_time
     def calculate_risk_node(state: AgentState) -> AgentState:
-        """Calculate initial risk with error handling"""
+        """Calculate initial risk with enhanced logging"""
+        log_event("calculate_risk_node_start", risk_data=state["risk_data"])
         try:
             risk_result = call_risk_api(state["risk_data"])
             state["risk_data"]["riskPercentage"] = risk_result["riskPercentage"]
+            log_event("calculate_risk_success", risk_percentage=risk_result["riskPercentage"])
         except RiskCalculationError as e:
-            logger.error(f"Risk calculation failed: {str(e)}")
+            log_event("calculate_risk_failed", level="error", error=str(e))
             if not state.get("errors"):
                 state["errors"] = []
             state["errors"].append({
@@ -30,8 +34,7 @@ class RiskAgent:
                 "error": str(e),
                 "status_code": getattr(e, "status_code", None)
             })
-            # Set a default risk percentage for fallback
-            state["risk_data"]["riskPercentage"] = 0.0  # Middle ground as fallback
+            state["risk_data"]["riskPercentage"] = 0.0  # Fallback risk percentage
         return state
 
     @staticmethod
