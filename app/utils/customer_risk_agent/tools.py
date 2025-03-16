@@ -67,7 +67,7 @@ def call_assessment_api(data: Dict) -> Dict:
     """
     try:
         response = requests.post(
-            "http://127.0.0.1:5000/api/risk-assessment-openai",
+            "http://127.0.0.1:5000/api/risk-assessment-llama",
             json=data,
             timeout=10
         )
