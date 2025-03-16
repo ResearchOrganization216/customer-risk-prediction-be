@@ -63,7 +63,7 @@ def generate_content_with_prompt(data):
         f"**Response Format:**\n"
         f"🚀. **Explanation:** Justify the assigned risk level, emphasizing the most important factors without mentioning feature importance scores.\n"
         f"🚀. **Premium Adjustment Recommendation:** Clearly state whether the premium should increase or decrease and provide a percentage adjustment derived from your analysis, explaining the rationale behind it. Ensure the reasoning is clear and data-driven.\n"
-        f"🚀. **Recommendations for Insurance Agents:** Suggest practical steps, such as policy adjustments or risk mitigation strategies.\n\n"
+        f"🚀. **Recommendations for Insurance Agents:** Suggest practical steps, such as policy adjustments, loyalty offers and new insurance packages of the company.\n\n"
         f"Ensure the response is data-driven, easy to understand, and avoids technical jargon or raw model outputs."
     )
 
