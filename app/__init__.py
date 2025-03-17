@@ -10,7 +10,7 @@ def create_app():
     app = Flask(__name__)
 
     # Loading configuration
-    app.config.from_object('app.config.Config')
+    app.config.from_object('config.Config')
 
     # Initializing extensions
     db.init_app(app)
