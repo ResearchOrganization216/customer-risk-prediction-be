@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: customer-risk-prediction
+spec:
+  type: LoadBalancer
+  selector:
+    app: customer-risk-prediction
+  ports:
+    - protocol: TCP
+      port: 5002 # External port
+      targetPort: 5002 # Container port
