@@ -34,7 +34,7 @@ def call_risk_api(data: Dict) -> Dict:
     """
     try:
         response = requests.post(
-            "http://127.0.0.1:5000/api/customer-risk",
+            "http://127.0.0.1:5002/api/customer-risk",
             json=data,
             timeout=10
         )
@@ -67,7 +67,7 @@ def call_assessment_api(data: Dict) -> Dict:
     """
     try:
         response = requests.post(
-            "http://127.0.0.1:5000/api/risk-assessment-llama",
+            "http://127.0.0.1:5002/api/risk-assessment-llama",
             json=data,
             timeout=10
         )
