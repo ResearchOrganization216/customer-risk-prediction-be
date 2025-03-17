@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: customer-risk-prediction
-          image: your-docker-image:tag # Replace with your actual image
+          image: asia-southeast1-docker.pkg.dev/innoainsure-project/innoainsure-be/customer-risk-prediction:latest # Replace with your actual image
           ports:
             - containerPort: 5002
           env:
