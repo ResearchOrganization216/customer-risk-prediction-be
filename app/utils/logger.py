@@ -1,13 +1,25 @@
 import logging
 import json
 import time
+import os
+
+# Ensure logs directory exists
+log_dir = "logs"
+log_file = os.path.join(log_dir, "risk_agent.log")
+
+try:
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir)  # Create logs directory if missing
+except Exception as e:
+    print(f"Error creating log directory: {e}")
+    log_file = "/tmp/risk_agent.log"  # Fallback location
 
 # Configure logger
 logger = logging.getLogger("risk_agent")
 logger.setLevel(logging.DEBUG)
 
 # Create handler
-handler = logging.FileHandler("logs/risk_agent.log")
+handler = logging.FileHandler(log_file)
 formatter = logging.Formatter('%(asctime)s %(levelname)s %(name)s: %(message)s')
 handler.setFormatter(formatter)
 
