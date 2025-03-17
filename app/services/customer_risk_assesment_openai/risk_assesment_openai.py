@@ -57,7 +57,7 @@ def generate_content_with_prompt(data):
         f"- Calculate the necessary premium adjustment based on the claim-to-premium ratio, total claims, and insured period, "
         f"but provide a clear explanation of how the adjustment is derived without referencing technical details.\n"
         f"- Make the explanation practical and relevant to Sri Lanka’s insurance market, using straightforward language.\n\n"
-        f"### **Response Format:**\n"
+        f"**Response Format:**\n"
         f"1. **Explanation:** Justify the assigned risk level, emphasizing the most important factors without mentioning feature importance scores.\n"
         f"2. **Premium Adjustment Recommendation:** Clearly state whether the premium should increase or decrease and provide a percentage adjustment derived from your analysis, explaining the rationale behind it. Ensure the reasoning is clear and data-driven.\n"
         f"3. **Recommendations for Insurance Agents:** Suggest practical steps, such as policy adjustments or risk mitigation strategies.\n\n"

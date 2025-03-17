@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-risk-prediction
+  labels:
+    app: customer-risk-prediction
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: customer-risk-prediction
+  template:
+    metadata:
+      labels:
+        app: customer-risk-prediction
+    spec:
+      containers:
+        - name: backend
+          # The image will be substituted by the CI/CD workflow; placeholder below.
+          image: asia-southeast1-docker.pkg.dev/innoainsure-project/innoainsure-be/customer-risk-prediction:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5002
+          env:
+            - name: PORT
+              value: "5003"
