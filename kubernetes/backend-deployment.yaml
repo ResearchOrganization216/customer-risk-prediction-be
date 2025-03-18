@@ -14,13 +14,20 @@ spec:
       labels:
         app: customer-risk-prediction
     spec:
+      serviceAccountName: innoainsure-ksa
       containers:
         - name: backend
-          # The image will be substituted by the CI/CD workflow; placeholder below.
           image: asia-southeast1-docker.pkg.dev/innoainsure-project/innoainsure-be/customer-risk-prediction:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 5002
           env:
             - name: PORT
-              value: "5003"
+              value: "5002"
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
